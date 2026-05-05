@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazona Storefront</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Amazona home">
+      <span class="brand-name">amazona</span>
+      <span class="brand-smile"></span>
+    </a>
+
+    <button class="location-btn" type="button" title="Delivery location">
+      <span class="tiny">Deliver to</span>
+      <strong>India</strong>
+    </button>
+
+    <form class="search" id="searchForm">
+      <select id="categorySelect" aria-label="Search category">
+        <option value="all">All</option>
+        <option value="electronics">Electronics</option>
+        <option value="home">Home</option>
+        <option value="fashion">Fashion</option>
+        <option value="books">Books</option>
+        <option value="fitness">Fitness</option>
+      </select>
+      <input id="searchInput" type="search" placeholder="Search Amazona" autocomplete="off">
+      <button type="submit" aria-label="Search">Search</button>
+    </form>
+
+    <button class="account-btn" type="button">
+      <span class="tiny">Hello, sign in</span>
+      <strong>Account</strong>
+    </button>
+
+    <button class="orders-btn" type="button">
+      <span class="tiny">Returns</span>
+      <strong>& Orders</strong>
+    </button>
+
+    <button class="cart-btn" id="cartButton" type="button" aria-label="Open cart">
+      <span class="cart-icon">Cart</span>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <nav class="nav-strip" aria-label="Store navigation">
+    <button id="menuButton" type="button">All</button>
+    <a href="#deals">Today's Deals</a>
+    <a href="#products">Best Sellers</a>
+    <a href="#products">Mobiles</a>
+    <a href="#products">Fashion</a>
+    <a href="#products">Home & Kitchen</a>
+    <a href="#products">Books</a>
+  </nav>
+
+  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+    <div class="side-menu-panel">
+      <div class="side-menu-head">
+        <strong>Hello, shopper</strong>
+        <button id="closeMenu" type="button" aria-label="Close menu">x</button>
+      </div>
+      <a href="#products">Trending</a>
+      <a href="#products">Digital Content</a>
+      <a href="#products">Shop by Category</a>
+      <a href="#products">Programs & Features</a>
+      <a href="#products">Help & Settings</a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="hero" aria-label="Featured promotion">
+      <div class="hero-copy">
+        <p>Prime-style picks</p>
+        <h1>Fresh deals across tech, home, fashion, and more</h1>
+        <a href="#products">Shop deals</a>
+      </div>
+    </section>
+
+    <section class="deal-grid" id="deals" aria-label="Featured deal categories">
+      <article>
+        <h2>Upgrade your workspace</h2>
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=80" alt="Modern desk setup with laptop">
+        <a href="#products" data-filter-link="electronics">See more</a>
+      </article>
+      <article>
+        <h2>Style refresh</h2>
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=80" alt="Clothing rack in a fashion store">
+        <a href="#products" data-filter-link="fashion">Shop fashion</a>
+      </article>
+      <article>
+        <h2>Home comfort finds</h2>
+        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=700&q=80" alt="Comfortable living room">
+        <a href="#products" data-filter-link="home">Explore home</a>
+      </article>
+      <article>
+        <h2>Read more this week</h2>
+        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=700&q=80" alt="Stack of books">
+        <a href="#products" data-filter-link="books">Browse books</a>
+      </article>
+    </section>
+
+    <section class="product-section" id="products">
+      <div class="section-head">
+        <div>
+          <p>Popular products</p>
+          <h2>Recommended for you</h2>
+        </div>
+        <div class="sort-row">
+          <label for="sortSelect">Sort</label>
+          <select id="sortSelect">
+            <option value="featured">Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Customer Rating</option>
+          </select>
+        </div>
+      </div>
+      <div class="chips" id="filterChips" aria-label="Product filters"></div>
+      <div class="products" id="productGrid"></div>
+      <p class="empty-state" id="emptyState">No products match your search.</p>
+    </section>
+  </main>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-panel">
+      <div class="cart-head">
+        <h2>Shopping Cart</h2>
+        <button id="closeCart" type="button" aria-label="Close cart">x</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="subtotal">
+          <span>Subtotal</span>
+          <strong id="cartTotal">₹0</strong>
+        </div>
+        <button id="checkoutButton" type="button">Proceed to Buy</button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <footer class="footer">
+    <div class="mo">
+      <h4 style="text-align: center;">
+        help counter
+      </h4>
+    </div>
+      <div class="footer-top">
+        <div class="column">
+          <h4>
+            get to know
+          </h4>
+          <a href="#">About Amazon</a>
+          <a href="#">careers</a>
+          <a href="#">Press Releases</a>
+          <a href="#"> Amazon Science</a>
+        </div>
+        <div class="column">
+          <h4>contact with us</h4>
+          <a href="#"> facebook</a>
+          <a href="#">twitter</a>
+          <a href="#">instagram</a>
+      </div>
+        <div class="column">
+          <h4>
+            get money with us
+          </h4>
+           <a href="#">Sell on Amazon</a>
+           <a href="#">Sell under Amazon Accelerator</a>
+           <a href="#">Protect and Build Your Brand</a>
+           <a href="#">Amazon Global Selling</a>
+           <a href="#">Supply to Amazon</a>
+           <a href="#">Become an Affiliate</a>
+           <a href="#">Fulfilment by Amazon</a>
+           <a href="#">Advertise Your Products</a>
+           <a href="#">Amazon Pay on Merchants</a>
+        </div>
+        <div class="column">
+          <h4>
+            Let us help you
+          </h4>
+          <a href="#">Your account</a>
+          <a href="#">Returns center</a>
+          <a href="#">Recalls and product safety alerts</a>
+          <a href="#">100% purchase protection</a>
+          <a href="#">Amazon app download</a>
+          <a href="#"> Help</a>
+        </div>
+      </div>
+      <div class ="footer-bottom">
+        <p>Conditions of Use & Sale
+              Privacy Notice
+              Interest-Based Ads</p>
+         <p>© 1996-2026, Amazon.com, Inc. or its affiliates</p>
+      </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
