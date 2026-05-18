@@ -384,6 +384,15 @@ a {
   line-height: 1.32;
 }
 
+.product-link {
+  cursor: pointer;
+  color: var(--link);
+}
+
+.product-link:hover h3 {
+  text-decoration: underline;
+}
+
 .rating {
   display: flex;
   align-items: center;

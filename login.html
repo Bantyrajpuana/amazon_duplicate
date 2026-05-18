@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        background: linear-gradient(135deg, #ff7e5f, #feb47b);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-container {
+        background: white;
+        padding: 30px;
+        width: 320px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        text-align: center;
+        animation: fadeIn 1s ease;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .input-box {
+        position: relative;
+        margin: 15px 0;
+    }
+
+    .input-box input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    .input-box input:focus {
+        border-color: #ff7e5f;
+        box-shadow: 0 0 5px #ff7e5f;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        background: #ff7e5f;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #e76b50;
+    }
+
+    .extra {
+        margin-top: 15px;
+        font-size: 14px;
+    }
+
+    .extra a {
+        color: #ff7e5f;
+        text-decoration: none;
+    }
+
+    .extra a:hover {
+        text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+    <h2>Welcome Back</h2>
+
+    <div class="input-box">
+        <input type="text" id="username" placeholder="Username">
+    </div>
+
+    <div class="input-box">
+        <input type="password" id="password" placeholder="Password">
+    </div>
+
+    <button onclick="login()">Login</button>
+
+    <div class="extra">
+        <p>Don't have an account? <a href="#">Sign up</a></p>
+    </div>
+</div>
+
+<script>
+function login() {
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if(user === "admin" && pass === "1234") {
+        alert("Login Successful!");
+        window.location.href = "index.html";
+    } else {
+        alert("Invalid Username or Password");
+    }
+}
+</script>
+
+</body>
+</html>
